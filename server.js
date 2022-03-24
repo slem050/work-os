@@ -17,6 +17,7 @@ const mongoose = require("mongoose");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("./client/build"))
 main().catch(err => console.log(err));
 const port = process.env.PORT || 3001;
 //mongoose
