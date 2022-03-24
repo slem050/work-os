@@ -8,8 +8,7 @@ const mongoose = require("mongoose");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-import jwt from "jwt-simple";
-import USERS from './schemes/users'
+
 
 
 
