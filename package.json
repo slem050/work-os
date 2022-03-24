@@ -1,17 +1,21 @@
 {
-  "name": "api-server-starter",
+  "name": "work-os",
   "version": "1.0.0",
-  "description": "A lightweight starter kit for building a Node-based API server",
-  "main": "server.ts",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && npm i && npm start"
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "jwt-simple": "^0.5.6",
-    "mongoose": "^6.2.5"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slem050/work-os.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slem050/work-os/issues"
+  },
+  "homepage": "https://github.com/slem050/work-os#readme"
 }
