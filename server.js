@@ -18,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 main().catch(err => console.log(err));
+const port = process.env.PORT || 3001;
 //mongoose
 main().catch((err) => console.log(err));
 const db = mongoose.connection;
@@ -32,8 +33,8 @@ db.once("open", () => {
     console.log("connected to DB!");
 });
 const routes = require('./routes/routes.js')(app, fs);
-const server = app.listen(3001, () => {
-    console.log('listening on port %s...', server.address().port);
+const server = app.listen(port, () => {
+    console.log('listening on port %s...', port);
 });
 const userRoute = require('./routes/userManage.js');
 app.use('/users', userRoute);
