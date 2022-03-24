@@ -39,7 +39,7 @@ const routes = require('./routes/routes.js')(app, fs);
 
 const PORT = process.env.PORT || 3001;
 const server = app.listen(PORT, () => {
-    console.log('listening on port %s...', server.address().port);
+    console.log('listening on port %s...', PORT);
 });
 const userRoute = require('./routes/userManage')
 app.use('/users', userRoute);
