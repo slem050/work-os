@@ -7,7 +7,15 @@
         "sourceMap": true,
         "outDir": "dist"
     },
+    "include" : [
+        "**/*.ts"   /* Include every ts file in source folder */
+    ],
+    "exclude" : [
+        "node_modules"  /* exclude everything in  node_modules */
+    ],
     "lib": [
         "es2015"
-    ]
+    ],
+    
+
 }
