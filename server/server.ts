@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 import path from 'path';
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -8,8 +8,7 @@ require('dotenv').config();
 const mongoose = require("mongoose");
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '..')+"\\client\\build"));
+app.use(express.static("../client/build"));
 
 
 
@@ -19,14 +18,7 @@ app.use(express.static(path.join(__dirname, '..')+"\\client\\build"));
 
 main().catch(err => console.log(err));
 
-//mongoose
-
-main().catch((err) => console.log(err));
-
 const db = mongoose.connection;
-
-
-
 
 async function main() {
   const password=process.env.MONGO_PASSWORD;

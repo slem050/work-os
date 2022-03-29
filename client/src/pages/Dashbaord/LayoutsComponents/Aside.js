@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import Switch from "react-switch";
 import { Link } from 'react-router-dom';
 import MainPage from '../panels/MainPage';
-import Tasks from '../panels/Tasks';
+import Tasks from '../panels/View';
 import { Route,Routes,Outlet, useNavigate } from 'react-router-dom';
 import {
   ProSidebar,
@@ -59,14 +59,14 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar,handleColla
               {intl.formatMessage({ id: 'dashboard' })}
             </MenuItem>
            
-            <MenuItem onClick={() => routeNavigate('/dashboard/tasks')} icon={<FaGem />}> {intl.formatMessage({ id: 'tasks' })}</MenuItem>
+            <MenuItem onClick={() => routeNavigate('/dashboard/Projects')} icon={<FaGem />}> {intl.formatMessage({ id: 'projects' })}</MenuItem>
           </Menu>
           <Menu iconShape="circle">
             <SubMenu
               title={intl.formatMessage({ id: 'social' })}
               icon={<FaRegLaughWink />}
             >
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1</MenuItem>
+              <MenuItem onClick={() => routeNavigate('/createProject')}>{intl.formatMessage({ id: 'createProject' })} 1</MenuItem>
               <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2</MenuItem>
               <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
             </SubMenu>

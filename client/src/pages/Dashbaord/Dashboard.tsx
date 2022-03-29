@@ -6,7 +6,7 @@ import './Dashboard.scss'
 import Layout from './Layout';
 import page1 from './components/DashboardPanel';
 import { Routes ,Route } from 'react-router-dom';
-import Tasks from './panels/Tasks';
+import Tasks from './panels/View';
 
 const messages:any =  require('./messages.js').default;
 

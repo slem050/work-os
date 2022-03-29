@@ -27,6 +27,8 @@ export default {
       new: 'جديد',
       activities: 'نشاطات',
       social: 'اجتماعي',
+      projects:'مشاريع',
+      createProject:'انشاء مشروع'
     },
     en: {
       Yourfriendshadposted:"Your friends had posted",
@@ -58,6 +60,8 @@ export default {
       new: 'NEW',
       activities: 'activities',
       social: 'social',
+      projects:' Projects',
+      createProject:'Create Project'
     },
   };
   
