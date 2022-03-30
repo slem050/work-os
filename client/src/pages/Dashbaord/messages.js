@@ -26,9 +26,10 @@ export default {
       image: 'صورة الخلفية',
       new: 'جديد',
       activities: 'نشاطات',
-      social: 'اجتماعي',
+      social: 'أنشأ',
       projects:'مشاريع',
-      createProject:'انشاء مشروع'
+      createProject:'انشاء مشروع',
+      createTask:'انشاء مهمه'
     },
     en: {
       Yourfriendshadposted:"Your friends had posted",
@@ -59,9 +60,10 @@ export default {
       image: 'Background image',
       new: 'NEW',
       activities: 'activities',
-      social: 'social',
+      social: 'create',
       projects:' Projects',
-      createProject:'Create Project'
+      createProject:'Create Project',
+      createTask:'Create task'
     },
   };
   

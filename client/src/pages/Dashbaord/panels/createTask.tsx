@@ -4,11 +4,11 @@ import { Input } from "../../../components/Input";
 import { Select } from "../../../components/Select";
 import { Textarea } from "../../../components/Textarea";
 import Layout from "../Layout";
-import "./style/CreateProject.scss"
+import "./style/CreateTask.scss"
 import { MultiSelect } from "react-multi-select-component";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const addProjecturl = "http://localhost:3001/project/add-Project/";
+const addtaskurl = "http://localhost:3001/task/add-task/";
 const messages:any =  require('../messages.js').default;
 
 interface layoutFn{
@@ -18,23 +18,24 @@ interface Participant{
     label : String,
     value:number
 }
-interface project{
+interface task{
     name:String,
-    owner:String,
+    projectId:String,
     finishDate:String,
-    startDate:String,
     text:String,
     particapent : Array<Participant>,
     
 }
 
 const participant= [{label:"saleem",value:1},{label:'nadya',value:2},{label:"rami",value:3},{label:'fadi',value:4}]
+const projects= [{label:"proejct1",value:"1"},{label:'proejct2',value:"2"},{label:"proejct3",value:"3"},{label:'proejct4',value:"4"}]
 
-function CreateProject(props:layoutFn)
+
+function Createtask(props:layoutFn)
 {
     const navigate = useNavigate();
     const [Userinput,setInput] = useState({name:"",
-    owner:"",
+    projectId:"",
     finishDate:"",
     startDate:"",
     text:"",
@@ -47,16 +48,15 @@ function CreateProject(props:layoutFn)
     {
         event.preventDefault();
         Userinput["particapent"] = selected;
-        Userinput["startDate"] = new Date().toDateString();
-        Userinput["owner"] = "1";
-        addProject(Userinput);
+        Userinput["projectId"] = "1";
+        addtask(Userinput);
         alert("added succefully")
         navigate("/dashboard/projects")
     }
-    function addProject(prop:project) {
+    function addtask(prop:task) {
         return new Promise((resolve, reject) => {
-          axios.post(addProjecturl, { name:prop.name,owner:prop.owner,finishDate:prop.finishDate,
-            startDate:prop.startDate,text:prop.text,
+          axios.post(addtaskurl, { name:prop.name,owner:prop.projectId,finishDate:prop.finishDate
+            ,text:prop.text,
             particapent:prop.particapent}).then((res: unknown) => {
             resolve(res)
           })
@@ -65,7 +65,7 @@ function CreateProject(props:layoutFn)
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         let tempInput = {...Userinput};
         let property = String(event.target.name);
-        if( property == "owner" || property =="finishDate" || property =="text" || property == "name" )
+        if( property == "projectId" || property =="finishDate" || property =="text" || property == "name" )
         {
             
                     tempInput[property] = event.target.value
@@ -77,6 +77,17 @@ function CreateProject(props:layoutFn)
     {
         Userinput["text"] = event.target.value;
     }
+    function handleSelectChange(event:React.ChangeEvent<HTMLSelectElement>) {
+        let tempInput = {...Userinput};
+        let property = String(event.target.name);
+        if( property == "projectId")
+        {
+            tempInput[property] = event.target.value
+            console.log(tempInput)
+            setInput(tempInput)
+        }
+      }
+  
   
     
     return(
@@ -88,31 +99,36 @@ function CreateProject(props:layoutFn)
             <div id="page-LogIn-form">
                 <main>
                     <fieldset>
-                        <legend>Create Project</legend>
-
-                        <Input name="name" label="complete name" onChange={handleChange}required/>
-                        <Input type="date" name="finishDate" label="finishDate" onChange={handleChange} required/>
+                        <legend>Create task</legend>
+                        <legend>select working project </legend>
+                        <Select   name="projectId" label="This is for: "
+                            options={projects } 
+                            onChange={handleSelectChange} required />
+                                              <br></br>
+                        <Input name="name" label="Task name" onChange={handleChange}required/>
+                        <Input type="date" name="Line Date" label="finishDate" onChange={handleChange} required/>
                     </fieldset>
                     <Textarea label="Description" name="text" onChange={TextAreaHandle}> </Textarea>
                     <fieldset>
-                        <legend>participant </legend>
-
+                        
+                        choose participants:
                           <pre>{selected.map((todo:any, index) =>
                             <h6 key={index}>
                                 {todo.label}
                             </h6>
                                 )}</pre>
-                        <MultiSelect
+                             <MultiSelect
                             options={participant}
                             value={selected}
                             onChange={setSelected}
                             labelledBy="Select"
                         />
+                      
                     </fieldset>
                     <footer>
                         
                         <button type="submit"> create</button>
-                        creating your project
+                        creating your task
 
                     </footer>
                 </main>
@@ -123,4 +139,4 @@ function CreateProject(props:layoutFn)
     
     )
 }
-export default CreateProject;
+export default Createtask;

@@ -13,6 +13,7 @@ import { Signin } from './pages/signin';
 import { Signup } from './pages/signup';
 import Projects from './pages/Dashbaord/panels/Projects'
 import CreateProject from './pages/Dashbaord/panels/CreateProject';
+import Createtask from './pages/Dashbaord/panels/createTask';
 
 
 function Routers()
@@ -21,13 +22,14 @@ function Routers()
     return (
       <BrowserRouter>
           <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/main" element={<Landing />} />
             <Route path="/main/signUp" element={<Signup/>}/>
             <Route path="/main/signIn" element={<Signin />} />
             <Route path="/dashboard" element={<Dashboard  />} />
             <Route path="/dashboard/Projects" element={<Projects langfunc={undefined}  />} />
             <Route path="/createProject" element={<CreateProject langfunc={undefined}  />} />
-            CreateProject
+            <Route path="/createTask" element={<Createtask langfunc={undefined}  />} />
+            
             </Routes>
 
             <Routes>

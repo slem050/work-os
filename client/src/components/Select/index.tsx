@@ -16,10 +16,10 @@ export function Select(props: propsSelect) {
 
         <div className="select-block">
             <label htmlFor={props.name}>{props.label}</label>
-            <select id={props.name} {...props}>
+            <select  id={props.name} {...props} >
             <option defaultValue="" value="" disabled  hidden >Selecione uma opção</option> {/* disable = desabilitar para escolha defaultValue= seleção padrão  hidden = para nao estar disponivel na listagem  */} 
             {props.options.map(option=>{
-                return <option key={option.value} value={option.value}>{option.label}</option>
+                return <option key={option.value} value={option.value}>{option.label} </option>
             })}
             </select>
         </div>

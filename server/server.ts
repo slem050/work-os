@@ -38,3 +38,6 @@ const server = app.listen(PORT, () => {
 });
 const userRoute = require('./routes/userManage')
 app.use('/users', userRoute);
+
+const ProjectRoute = require('./routes/ProjectManage')
+app.use('/project', ProjectRoute);

@@ -66,9 +66,8 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar,handleColla
               title={intl.formatMessage({ id: 'social' })}
               icon={<FaRegLaughWink />}
             >
-              <MenuItem onClick={() => routeNavigate('/createProject')}>{intl.formatMessage({ id: 'createProject' })} 1</MenuItem>
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2</MenuItem>
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
+              <MenuItem onClick={() => routeNavigate('/createProject')}>{intl.formatMessage({ id: 'createProject' })} </MenuItem>
+              <MenuItem onClick={() => routeNavigate('/createTask')}>{intl.formatMessage({ id: 'createTask' })} </MenuItem>
             </SubMenu>
             <SubMenu
               title={intl.formatMessage({ id: 'activities' })}
